@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ student.jmeno }}{% endblock %}
+
+{% block body %}
+ <h1>{{ student.jmeno }}</h1>
+ <p>{{ student.znamka }}</p>
+ <hr>
+ <a href="/list">Zpet</a>
+{% endblock %}

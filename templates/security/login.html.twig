@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Studenti - login{% endblock %}
+
+{% block body %}
+<body>
+
+<div>
+        Přistupové údaje:<br> 
+        <div style="margin: 0 25px;">
+            Admin: Pass: 1234 <br>
+            User: Pass: 4321 <br>
+        </div>
+</div>
+
+<form action="{{ path('login') }}" method="post" class="col-lg-4 col-md-10 col-sm-12" style="margin-top: 30px;">
+    <label for="username">Uživatelské jméno:</label><br>
+    <input type="text" class="form-control" id="username" name="_username" value="{{ last_username }}" ><br>
+        
+    <label for="password">Heslo:</label><br>
+    <input type="password" class="form-control" id="password" name="_password" >
+
+    <input type="hidden" name="_target_path" value="/list" /><br>
+       
+    <button class="btn btn-primary" type="submit">Přihlásit se</button>
+</form>
+</div>
+
+</div>
+
+{% if error %}
+    <div style="text-align:center;">
+        <!-- {{ error.messageKey|trans(error.messageData, 'security') }} -->
+            Přihlášení se nezdařilo. Neplatné uživatelské jmeno nebo heslo.
+    </div>
+{% endif %}
+
+</body>
+{% endblock %}

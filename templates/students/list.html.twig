@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Studenti - seznam{% endblock %}
+
+{% block body %}
+  {% if students %}
+    <table id="students" class="table table-striped">
+      <thead>
+        <tr>
+          <th>Jmeno</th>
+          <th>Možnosti</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for student in students %}
+          <tr>
+            <td>{{ student.jmeno }}</td>
+            <td>
+              <a href="/student/{{ student.id }}" class="btn btn-dark">Zobrazit</a>
+              <a href="/student/edit/{{ student.id }}" class="btn btn-light">Upravit</a>
+              <a href="#" class="btn btn-danger delete-student" data-id="{{ student.id }}">Odstranit</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>Žádní studenti v databázi</p>
+  {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+  <script src="/js/main.js"></script>
+{% endblock %}
