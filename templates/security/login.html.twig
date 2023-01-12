@@ -26,6 +26,14 @@
 </form>
 </div>
 
+    {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path("/") }}">Přejít na list. Přihlášen jako: <b>Admin</b></a>
+    {% endif %}
+        
+    {% if is_granted('ROLE_USER') %}
+        <a href="{{ path("/") }}">Přejít na list. Přihlášen jako: <b>User</b></a>
+    {% endif %}
+    
 </div>
 
 {% if error %}
